@@ -3,7 +3,7 @@
     <h3> Edit your Listing </h3>
     <div class="row">
         <div class="col-md-8 col-md-offset-3 mt-3">
-         <form method="POST" action="/listings/<%=listing.id %>?_method=PUT">
+         <form method="POST" action="/listings/<%=listing.id %>/edit?_method=PUT" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="title" class="form-label"> Tittle</label>
             <input name="listing[title]" type="text"  value="<%=listing.title%>" class="form-control">
@@ -11,10 +11,19 @@
          <div>
             <label for="description" class="form-label"> Description</label>
             <textarea rows="4" cols="50" name="listing[description]" placeholder="add description" class="form-control"><%= listing.description %></textarea>
+         </div>
+         <br>
+         <div class="mb-3">
+            <p>original image:</p>
+            <img src="<%= listing.image.url %>" alt="">
          </div>  
+         <div>
+            <label for="image" class="form-label"> Upload new image :</label>
+            <input name="listing[image]"  type="file" class="form-control" >
+         </div>
         <div class="row">
             <div class="mb-3 col-md-4">
-                <label for="price" class="form-label"> Price</label>
+                <label for="price" class="form-label"> Guide Charges </label>
                 <input name="listing[price]" type="number" placeholder="add price" value="<%=listing.price%>" class="form-control">
             </div>
             <div class="mb-3 col-md-8">

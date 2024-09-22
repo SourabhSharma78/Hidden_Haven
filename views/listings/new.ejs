@@ -1,40 +1,42 @@
-<% layout("/layouts/boilerplate")-%>
+<%layout("/layouts/boilerplate")%>
 <body>
     <h3>Add new listing </h3>
     <div class="row">
         <div class="col-md-8 col-md-offset-3">
      
-    <form method="POST" action="/listings">
+    <form method="POST" action="/listings" id="myForm" enctype="multipart/form-data" >
         <div class="mb-3">
             <label  for="title"  class="form-label">Title</label>
-            <input name="listing[title]" type="text" class="form-control" placeholder="Add a title ">
-        </div>
+            <input id="title" name="listing[title]" type="text" class="form-control" placeholder="Add a title " required>
+        </div>       
         <div class="mb-3">
             <label for="description" class="form-label" > Description </label>
-            <textarea rows="4" cols="50" name="listing[description]" class="form-control"></textarea>
+            <textarea id="description"  rows="4" cols="50" name="listing[description]" class="form-control" required></textarea>
         </div>
         <div class="mb-3">
-            <label for="image" class="from-label"> Image </label>
-            <input name="listing[image]" class="form-control" placeholder="Enter image URL/Link ">
+            <label for="image" class="from-label"> Upload Image:</label>
+            <input  type="file"  id="image"  name="listing[image]" class="form-control">
         </div>
         <div class="row">
             <div class="mb-3 col-md-4">
-                <label for="price" class="form-label">Price</label>
-                <input name="listing[price]" type="number" class="form-control" placeholder="Enter price in &#8377; ">
+                <label for="price" class="form-label">Guide Charges </label>
+                <input id="price"  name="listing[price]" type="number" class="form-control" placeholder="Enter Charges in &#8377; "  required>
             </div>
             <div class="mb-3 col-md-8">
                 <label for="country" class="form-label"> Country </label>
-                <input name="listing[country]" type="text" class="form-control" placeholder="e.g - India">
+                <input id="country"  name="listing[country]" type="text" class="form-control" placeholder="e.g - India" required>
             </div>
         </div>
         <div class="mb-3">
             <label for="location" class="form-label"> Location </label>
-            <input name="listing[location]" type="text" class="form-control" placeholder="e.g - Hamirpur , Himachal Pradesh">
+            <input  id="location"  name="listing[location]" type="text" class="form-control" placeholder="e.g - Hamirpur , Himachal Pradesh" required>
         </div>
-        <button class="btn btn-danger mb-5"> Submit </button> 
+        <button class="btn btn-danger mb-5" type="submit"> Submit </button> 
     </form>
 
 </div>
     
 </div>
+
+
 </body>
